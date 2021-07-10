@@ -59,3 +59,5 @@ class TestExamples(BaseCase):
             device,
             "Parameter 'device' in response doesn't equal expected value"
         )
+
+
