@@ -45,17 +45,7 @@ class TestUserRegister(BaseCase):
     @pytest.mark.parametrize('condition', exclude_params)
     def test_create_user_without_main_parameter(self, condition):
         data = self.prepare_registration_data()
-
-        if condition == 'email':
-            del data['email']
-        elif condition == 'password':
-            del data['password']
-        elif condition == 'username':
-            del data['username']
-        elif condition == 'firstName':
-            del data['firstName']
-        elif condition == 'lastName':
-            del data['lastName']
+        del data[condition]
 
         response = MyRequests.post("/user", data=data)
 
